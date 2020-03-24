@@ -1,0 +1,93 @@
+\documentclass{article}
+\newcommand{\nm}{\begin{equation}}
+\newcommand{\enm}{\end{equation}}
+\newcommand{\nma}{\begin{align*}}
+\newcommand{\enma}{\end{align*}}
+\newcommand{\lp}{\left(}
+\newcommand{\rp}{\right)}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{physics}
+\title{statemech: deriving intesive propertise classical and quantum}
+\author{seth iwan }
+\date{February 2020}
+
+\begin{document}
+
+\maketitle
+\section{classical picture}
+\nm
+z_n=\lp\frac{4\pi}{\beta \mu B}\rp^N \sinh{\beta \mu B}^N
+\enm
+so of f is 
+\nm
+F=kT\ln{z} = kTN\lp \ln{\lp4\pi\sinh{\beta\mu B}\rp}-\ln{\lp B\mu\beta\rp}\rp
+\enm
+\textbf{solving for S}
+\begin{align*}
+S&=-\pdv{F}{T}=-\pdv{T}  kTN\lp \ln{\lp4\pi\sinh{\beta\mu B}\rp}-\ln{\lp B\mu\beta\rp}\rp \\
+&=KN\lp 1-\ln{\lp\frac{4\pi}{\beta\mu B}\sinh{\lp\beta\mu B\rp}\rp}+\beta\mu\coth{\lp\beta\mu B\rp}\rp
+\end{align*}
+\textbf{solving for presure}
+\nm
+p=-\pdv{F}{V}=0
+\enm
+\textbf{solving for chemical potenial}
+\begin{align*}
+\mu&=\pdv{F}{N}=\pdv{N} kTN\lp \ln{\lp4\pi\sinh{\beta\mu_0 B}\rp}-\ln{\lp B\mu_0\beta\rp}\rp \\
+&=kT\ln{\frac{4\pi\sinh{\lp \beta\mu_0\rp}}{\beta \mu_0 B}}
+\end{align*}
+
+\textbf{solving for magnetic moment}
+\begin{align*}
+M&=-\pdv{F}{B} \\
+&= -\pdv{B} kTN\lp \ln{\lp4\pi\sinh{\beta\mu B}\rp}-\ln{\lp B\mu\beta\rp}\rp \\
+&= -N\lp \mu_0\coth{\lp B\beta\mu_0\rp} -\frac{1}{B}\rp
+\end{align*}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+\section{now for the quantum picture}
+ here of F is
+ \nm
+ F=kTN\ln{\lp2\cosh{\lp\beta\mu_0 B\rp}\rp}
+ \enm
+\textbf{entropy}
+\begin{align*}
+S&=-\pdv{F}{T} \\
+&=-\pdv{T} kTN\ln{\lp2\cosh{\lp\beta\mu_0 B\rp}\rp}\\
+&= -kN\ln(2\cosh(B\beta\mu_0))+\frac{kN\beta\mu_0}{\beta}\tanh(\beta\mu_0B)
+\end{align*}
+\textbf{for pressure}
+\nm
+p=-\pdv{F}{V}=0
+\enm
+\textbf{for chemical potentail}
+\begin{align*}
+\mu=\pdv{F}{N} = kT\ln(2\cosh(B\beta\mu_0))
+\end{align*}
+\textbf{for M}
+\begin{align*}
+M&=-\pdv{F}{B} \\
+&= -\frac{kTN}{2\cosh(B\beta\mu_0)} 2\sinh(\beta\mu_0 B)\beta\mu_0 \\
+&= -N\mu_0 \tanh(\beta\mu_0 B)
+\end{align*}
+
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+\section{comparision of M for both classical and quantum}
+as T goes to zero beta gets bigger and bigger this causes the$ \frac{1}{\beta B}$ term in the classical picture to disappear and for the coth term to approach one. for the quantum term the tanh term goes to one as well. this means that the two term agree with each other ate t=0
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
