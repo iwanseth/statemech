@@ -1,0 +1,39 @@
+\documentclass{article}
+\newcommand{\nm}{\begin{equation}}
+\newcommand{\enm}{\end{equation}}
+\newcommand{\nma}{\begin{align*}}
+\newcommand{\enma}{\end{align*}}
+\newcommand{\lp}{\left(}
+\newcommand{\rp}{\right)}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{physics}
+\title{statemech: deriving entropy in micro cononical ensemble }
+\author{seth iwan }
+\date{march 2020}
+
+\begin{document}
+
+\maketitle
+\section{solving for entropy starting with $ S= -k \tr(\rho \ln(\rho))$}
+first i will use $\rho =\sum_n P_n \ket{n}\bra{n}$ and use the trace property $\tr(A)=\sum_n \bra{n}A\ket{n}$
+\nm
+S= -k \sum_n P_n \ln(P_n)
+\enm
+the sumation of all probabilities equals one, so S becomes
+\nm
+ S= -k\ln P_n
+\enm
+now we use the definition 
+\begin{align*}
+\sum_n P_n& = \frac{1}{\Omega} \sum_n \int_E^{E+\Delta E} \delta \lp \lambda - E_n \rp d\lambda
+\therefore P_n &= \frac{1}{\Omega}*1
+\end{align*}
+using this S becomes
+
+\nm
+\boxed{S = k\ln(\Omega)}
+\enm
+
+\end{document}
