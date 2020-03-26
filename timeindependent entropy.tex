@@ -1,0 +1,32 @@
+\documentclass{article}
+\newcommand{\nm}{\begin{equation}}
+\newcommand{\enm}{\end{equation}}
+\newcommand{\nma}{\begin{align*}}
+\newcommand{\enma}{\end{align*}}
+\newcommand{\lp}{\left(}
+\newcommand{\rp}{\right)}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{physics}
+\title{statemech: liouville-von Neumann proof that entropy in constant in time}
+\author{seth iwan }
+\date{march 2020}
+
+\begin{document}
+
+\maketitle
+\section{$i\hbar \pdv{\rho}{t} =\qty[H,\rho]$}
+
+using this to show that $\pdv{S}{t}=0$
+\begin{align*}
+S &= -k \tr(\rho\ln(\rho))) \\
+\pdv{S}{t} &=-k\tr(\pdv{\rho}{t}\ln(\rho)) + \rho \frac{1}{\rho}\pdv{\rho}{t} \\
+\end{align*}
+for a system to have a constant energy H commutes with $\rho$ which means $\pdv{\rho}{t}= 0$
+\nm
+\therefore \pdv{S}{t} =0
+\enm
+
+
+\end{document}
