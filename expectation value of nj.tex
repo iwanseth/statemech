@@ -1,0 +1,51 @@
+\documentclass{article}
+\newcommand{\nm}{\begin{equation}}
+\newcommand{\enm}{\end{equation}}
+\newcommand{\nma}{\begin{align*}}
+\newcommand{\enma}{\end{align*}}
+\newcommand{\lp}{\left(}
+\newcommand{\rp}{\right)}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{physics}
+\title{statemech: expectation value of nj}
+\author{seth iwan }
+\date{march 2020}
+
+\begin{document}
+\maketitle
+\section{boson}
+goal is to derive $\expval{ n_j}  = \frac{1}{\exp(\mu-\epsilon)-1}$
+\begin{align*}
+\expval{n_j}&=\sum_{\{n_k\}}n_j P\{n_k\} \\
+&= \sum_{\{n_k\}}n_j \exp{\sum_{\{n_k\}} \beta\lp\mu-\epsilon_k\rp n_k}\frac{1}{\sum_{\{n_k\}}\exp{\sum_{\{n_k\}} \beta\lp\mu-\epsilon_k\rp n_k}} \\
+&=-\frac{1}{\beta}\pdv{\epsilon_k} \ln(\mathcal{Z})
+\end{align*}
+\nm
+\expval{n_j}=-\frac{1}{\beta}\pdv{\epsilon_k} \ln(\mathcal{Z})
+\enm
+i got this be making use of the fact that $P\{n_k\}=\exp{\sum_{\{n_k\}} \beta\lp\mu-\epsilon_k\rp n_k}\frac{1}{\sum_{\{n_k\}}\exp{\sum_{\{n_k\}} \beta\lp\mu-\epsilon_k\rp n_k}}$ and the fact the $\frac{\pdv{x}y}{y}=\pdv{x}\ln(y)$.  Equation 1 wil be used for both the boson and fermion case. 
+\begin{align*}
+\mathcal{Z}&=\prod_{k=0}^{\infty}\frac{1}{1-\exp{\beta\lp\mu-\epsilon_k\rp}} \\
+&\text{plug this into equation 1} \\
+\expval{n_j}&=-\frac{1}{\beta}\pdv{\epsilon_k} \ln(\prod_{k=0}^{\infty}\frac{1}{1-\exp{\beta\lp\mu-\epsilon_k\rp}}) \\
+                 &=\frac{1}{\beta}\pdv{\epsilon_k} \ln(\prod_{k=0}^{\infty}1-\exp{\beta\lp\mu-\epsilon_k\rp}) \\
+                 &=\frac{1}{\beta}\frac{\prod_{k=0}^{\infty}\exp{\beta\lp\mu-\epsilon_k\rp}}{\prod_{k=0}^{\infty}\lp1-\exp{\beta\lp\mu-\epsilon_k\rp}\rp} \\
+                 \text{which simplifies into } \\
+                 & \boxed {=\frac{1}{\exp(-\beta\lp \mu-\epsilon\rp)-1}}
+\end{align*}
+
+\section{fermion}
+very similar to boson except $\mathcal{Z}=\prod_{k=0}^{\infty}\lp1+\exp{\beta\lp\mu-\epsilon_k\rp}\rp$
+
+\begin{align*}
+\text{plug this into equation 1} \\
+\expval{n_j}&=-\frac{1}{\beta}\pdv{\epsilon_k} \ln(\prod_{k=0}^{\infty}\lp1+\exp{\beta\lp\mu-\epsilon_k\rp}\rp) \\
+                 &=\frac{1}{\beta}\frac{\prod_{k=0}^{\infty}\exp{\beta\lp\mu-\epsilon_k\rp}}{\prod_{k=0}^{\infty}\lp1+\exp{\beta\lp\mu-\epsilon_k\rp}\rp} \\
+                 \text{which simplifies into } \\
+                 & \boxed {=\frac{1}{\exp(-\beta\lp \mu-\epsilon\rp)+1}}
+\end{align*}
+
+
+\end{document}
